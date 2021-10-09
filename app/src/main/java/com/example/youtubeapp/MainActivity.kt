@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.GridView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,9 +23,7 @@ class MainActivity : AppCompatActivity() {
     )
     private lateinit var youTubeView: YouTubePlayerView
     private lateinit var play: YouTubePlayer
-    private lateinit var vidName : TextView
     private lateinit var recyclerView: RecyclerView
-    private var vidname = " "
     private var vid = 0
     private var time = 0f
 
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
             youTubeView = findViewById(R.id.ytPlay)
-            recyclerView = findViewById(R.id.rvVid)
+            //recyclerView = findViewById(R.id.rvVid)
 
 
             interntconnect()
@@ -42,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                     super.onReady(youTubePlayer)
                     play = youTubePlayer
                     play.loadVideo(videos[vid][1], time)
-                    vidrv(recyclerView)
+                    vidrv()
                 }
             })
     }
@@ -71,12 +70,19 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun vidrv(recyclerView: RecyclerView){
+
+    private fun vidrv(){
+
+        val gridView: GridView = findViewById(R.id.rvVid)
+        gridView.adapter = VidGridAdap(videos, play,this@MainActivity)
+
+    }
+   /* private fun vidrv(recyclerView: RecyclerView){
         recyclerView.adapter = vidAdap(videos, play)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
-    }
+    }*/
 
     private fun interntconnect(){
         if(!connectedOrNot()){

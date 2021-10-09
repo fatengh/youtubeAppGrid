@@ -11,15 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:id="@+id/llItem"
+        android:id="@+id/llCard"
         android:orientation="horizontal">
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:text="Button"
-            android:textSize="20sp"
-            android:id="@+id/btnvid"/>
+            android:textSize="15sp"
+            android:id="@+id/btnVid"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
