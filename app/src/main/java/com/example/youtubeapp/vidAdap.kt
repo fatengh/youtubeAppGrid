@@ -14,7 +14,7 @@ class vidAdap(
     private val plr: YouTubePlayer
 ) : RecyclerView.Adapter<vidAdap.VideoViewHolder>() {
     class VideoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val button: Button = itemView.btnvid
+        val button: Button = itemView.btnVid
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
